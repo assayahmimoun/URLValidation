@@ -86,9 +86,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Assembler\URLAssembler.cs" />
+    <Compile Include="Controllers\URLController.cs" />
+    <Compile Include="Enum\ErrorType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ValidationMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,8 +106,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\URL.Validation.Business\URL.Validation.Business.csproj">
+      <Project>{4911775c-25d3-4dcd-b5a1-b3324e1dea52}</Project>
+      <Name>URL.Validation.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\URL.Validation.DTO\URL.Validation.DTO.csproj">
+      <Project>{51ebe170-c5fa-4390-8b3f-1836e9a0a941}</Project>
+      <Name>URL.Validation.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -120,7 +132,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6437</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:6437/</IISUrl>
+          <IISUrl>http://localhost:8181/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
