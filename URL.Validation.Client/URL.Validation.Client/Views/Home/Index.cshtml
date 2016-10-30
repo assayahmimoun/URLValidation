@@ -15,18 +15,18 @@
 </head>
 <body>
     <div ng-app="URLApp">
-        <div id="content" ng-controller="URLController">
-            <form ng-submit="submitForm()" class="form-inline" name="frmUrl">
-                <div>
-                    <input type="text" class="form-control" ng-model="url" name="url" placeholder="Saisissez votre url" required />
-                    <span class="error" ng-show="(frmUrl.$dirty||submitted)&&frmUrl.url.$error.required">Url est obligatoire</span>
-                </div>
-                <div>
-                    <input type="submit" value="Valider" class="btn btn-default" ng-disabled="frmUrl.$invalid">
-                </div>
-            </form>
-            <hr />
-            <div ng-class="result">{{message}}</div>
+        <div id="content" ng-controller="URLController" class="vertical-center container">
+            <div class="horizontal-center">
+                <form ng-submit="submitForm()" class="form-inline" name="frmUrl">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="url" name="url" placeholder="Saisissez votre url" required />
+                        <span class="error" ng-show="(frmUrl.$dirty||submitted)&&frmUrl.url.$error.required">Url est obligatoire</span>
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-disabled="frmUrl.$invalid">Valider</button>
+                </form>
+                <br />
+                <div ng-class="result">{{message}}</div>
+            </div>
         </div>
     </div>
     <script src="~/Scripts/Plugins/JQuery/jquery-3.1.1.min.js"></script>
