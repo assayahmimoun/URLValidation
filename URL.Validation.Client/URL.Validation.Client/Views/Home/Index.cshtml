@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <base href="/">
+    <link href="~/Content/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-app="URLApp">
+        <div id="content" ng-controller="URLController">
+            <form ng-submit="submitForm()" class="form-inline" name="frmUrl">
+                <div>
+                    <input type="text" class="form-control" ng-model="url" name="url" placeholder="Saisissez votre url" required />
+                    <span class="error" ng-show="(frmUrl.$dirty||submitted)&&frmUrl.url.$error.required">Url est obligatoire</span>
+                </div>
+                <div>
+                    <input type="submit" value="Valider" class="btn btn-default" ng-disabled="frmUrl.$invalid">
+                </div>
+            </form>
+            <hr />
+            <div ng-class="result">{{message}}</div>
+        </div>
+    </div>
+    <script src="~/Scripts/Plugins/JQuery/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/Plugins/Angular/angular.min.js"></script>
+    <script src="~/Scripts/Plugins/Angular/angular-route.min.js"></script>
+    <script src="~/Scripts/App/url.app.js"></script>
+</body>
+</html>
