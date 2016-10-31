@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URL.Validation.Client.Busin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URL.Validation.Client.DTO", "URL.Validation.Client.DTO\URL.Validation.Client.DTO.csproj", "{8EF1335B-DCE0-4B22-910D-32D6206FAB65}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C977E921-D80E-4832-B2D9-19D52928B3C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URL.Validation.Client.Common", "URL.Validation.Client.Common\URL.Validation.Client.Common.csproj", "{B16D7AFE-6761-4A62-8DAD-BCE6C4216AE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,10 @@ Global
 		{8EF1335B-DCE0-4B22-910D-32D6206FAB65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EF1335B-DCE0-4B22-910D-32D6206FAB65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EF1335B-DCE0-4B22-910D-32D6206FAB65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B16D7AFE-6761-4A62-8DAD-BCE6C4216AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16D7AFE-6761-4A62-8DAD-BCE6C4216AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16D7AFE-6761-4A62-8DAD-BCE6C4216AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16D7AFE-6761-4A62-8DAD-BCE6C4216AE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +44,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0E19E707-90BE-4444-8DF6-1D3E10878F21} = {90B3532B-B496-4878-80B6-0E2F16016FA4}
 		{8EF1335B-DCE0-4B22-910D-32D6206FAB65} = {90B3532B-B496-4878-80B6-0E2F16016FA4}
+		{B16D7AFE-6761-4A62-8DAD-BCE6C4216AE2} = {C977E921-D80E-4832-B2D9-19D52928B3C6}
 	EndGlobalSection
 EndGlobal

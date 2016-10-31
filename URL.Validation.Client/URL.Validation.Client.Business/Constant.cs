@@ -15,5 +15,10 @@ namespace URL.Validation.Client.Business
         /// Constant used to define the time out of the WS.
         /// </summary>
         public const int WS_TIMEOUT = 20;
+
+        /// <summary>
+        /// constant used to define action check domain api
+        /// </summary>
+        public const string APIUrlActionCheckDomain = "api/URL/CheckValidationURL";
     }
 }

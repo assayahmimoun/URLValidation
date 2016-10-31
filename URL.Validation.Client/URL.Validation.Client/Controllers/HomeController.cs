@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using URL.Validation.Client.Business.Services;
 
 namespace URL.Validation.Client.Controllers
 {
@@ -19,6 +20,7 @@ namespace URL.Validation.Client.Controllers
         {
             if (ModelState.IsValid)
             {
+                var result = URLService.CheckDomainIsAvailable(url);
                 //Data save to database  
                 return Json(new
                 {

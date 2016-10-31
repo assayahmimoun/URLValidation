@@ -46,10 +46,21 @@
   <ItemGroup>
     <Compile Include="Constant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\URLService.cs" />
     <Compile Include="WSCaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\URL.Validation.Client.Common\URL.Validation.Client.Common.csproj">
+      <Project>{b16d7afe-6761-4a62-8dad-bce6c4216ae2}</Project>
+      <Name>URL.Validation.Client.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\URL.Validation.Client.DTO\URL.Validation.Client.DTO.csproj">
+      <Project>{8ef1335b-dce0-4b22-910d-32d6206fab65}</Project>
+      <Name>URL.Validation.Client.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -146,6 +146,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\URL.Validation.Client.Business\URL.Validation.Client.Business.csproj">
+      <Project>{0e19e707-90be-4444-8df6-1d3e10878f21}</Project>
+      <Name>URL.Validation.Client.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\URL.Validation.Client.DTO\URL.Validation.Client.DTO.csproj">
+      <Project>{8ef1335b-dce0-4b22-910d-32d6206fab65}</Project>
+      <Name>URL.Validation.Client.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -161,7 +171,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>11066</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:11066/</IISUrl>
+          <IISUrl>http://localhost:8080/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
