@@ -16,6 +16,9 @@
 <body>
     <div ng-app="URLApp">
         <div id="content" ng-controller="URLController" class="vertical-center container">
+            <div id="loadingDiv" ng-show="isViewLoading">
+                <img src="~/Content/Img/loader.gif" class="ajax-loader" height="20px" />
+            </div>
             <div class="horizontal-center">
                 <form ng-submit="submitForm()" class="form-inline" name="frmUrl">
                     <div class="form-group">

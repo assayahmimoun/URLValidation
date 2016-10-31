@@ -22,12 +22,13 @@ namespace URL.Validation.Business.Services
             {
                 message.ErrorType = DTO.Enum.ErrorType.InvalidUrl;
             }
-            else if(!IsDomainNameAvailable(url))
+            else if(IsDomainNameAvailable(url))
             {
                 message.ErrorType = DTO.Enum.ErrorType.Exist;
             }
+            else
+                message.OperationSuccess = true;
 
-            message.OperationSuccess = true;
             return message;
         }
 

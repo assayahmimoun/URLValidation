@@ -21,18 +21,53 @@ namespace URL.Validation.Client.Controllers
             if (ModelState.IsValid)
             {
                 var result = URLService.CheckDomainIsAvailable(url);
-                //Data save to database  
-                return Json(new
+                if(result != null)
                 {
-                    success = true
-                }, 
-                JsonRequestBehavior.AllowGet);
+                    if(result.OperationSuccess)
+                    {
+                        return Json(new
+                        {
+                            Success = true,
+                            Message = "Nom de domaine disponible"
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else if(result.ErrorType.HasValue)
+                    {
+                        string message = string.Empty;
+                        switch(result.ErrorType.Value)
+                        {
+                            case DTO.Enum.ErrorType.EmptyRequest:
+                                message = "Veuillez saisir un nom de domaine.";
+                                break;
+                            case DTO.Enum.ErrorType.Exist:
+                                message = $"{url} est déjà enregistré.";
+                                break;
+                            case DTO.Enum.ErrorType.InvalidUrl:
+                                message = "Le nom de domaine n'est pas valide. Veuillez le saisir à nouveau.";
+                                break;
+                        }
+
+                        return Json(new
+                        {
+                            Success = false,
+                            Message = message
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        Success = false,
+                        Message = "Un problème est survenu lors de la connexion. Veuillez réessayer s’il vous plait."
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
 
             return Json(new
             {
-                success = false,
-                errors = ModelState.Keys.SelectMany(i => ModelState[i].Errors).Select(m => m.ErrorMessage).ToArray()
+                Success = false,
+                Message = "Un problème est survenu lors de la connexion. Veuillez réessayer s’il vous plait."
             }, JsonRequestBehavior.AllowGet);
         }
     }

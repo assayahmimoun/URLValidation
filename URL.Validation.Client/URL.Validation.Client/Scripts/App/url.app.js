@@ -2,7 +2,7 @@
     controller('URLController', function ($scope, $http, $location, $window) {
         $scope.url = '';
         $scope.message = '';
-        $scope.result = "color-default";
+        $scope.result = "error";
         $scope.isViewLoading = false;
         //get called when user submits the form
         $scope.submitForm = function () {
@@ -13,20 +13,20 @@
                 url: '/Home/DomainIsAvailable?url='+$scope.url,
             }).success(function (data, status, headers, config) {
                 $scope.errors = [];
-                if (data.success === true) {
-                    $scope.cust = {};
-                    $scope.message = 'Le lien saisie est disponible';
+                if (data.Success === true) {
+                    $scope.message = data.Message;
                     $scope.result = "color-green";
                 }
                 else {
-                    $scope.errors = data.errors;
+                    $scope.message = data.Message;
                 }
+                $scope.isViewLoading = false;
             }).error(function (data, status, headers, config) {
                 $scope.errors = [];
+                $scope.isViewLoading = false;
             });
-            $scope.isViewLoading = false;
+            
         }
     }).config(function ($locationProvider) {
-        //default = 'false'
         $locationProvider.html5Mode(true);
     });
