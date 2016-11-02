@@ -15,5 +15,18 @@ namespace URL.Validation.Client.Common.Helper
                 return host;
             }
         }
+
+        public static string ReCaptchaSecretKey
+        {
+            get
+            {
+                
+                string key = ConfigurationManager.AppSettings["reCaptcha.Key.Secret"];
+                if (string.IsNullOrWhiteSpace(key))
+                    key = "6LeI4AoUAAAAAMTV702WjvJaFnrBz428Sz8HeQ0U";
+
+                return key;
+            }
+        }
     }
 }

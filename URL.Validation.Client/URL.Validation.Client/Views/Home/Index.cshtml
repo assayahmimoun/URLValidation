@@ -25,6 +25,8 @@
                         <input type="text" class="form-control" ng-model="url" name="url" placeholder="Saisissez votre url" required />
                         <span class="error" ng-show="(frmUrl.$dirty||submitted)&&frmUrl.url.$error.required">Url est obligatoire</span>
                     </div>
+                    <!--Recaptcha Widget--->
+                    <div vc-recaptcha key="publicKey"></div>
                     <button type="submit" class="btn btn-default" ng-disabled="frmUrl.$invalid">Valider</button>
                 </form>
                 <br />
@@ -32,9 +34,11 @@
             </div>
         </div>
     </div>
-    <script src="~/Scripts/Plugins/JQuery/jquery-3.1.1.min.js"></script>
-    <script src="~/Scripts/Plugins/Angular/angular.min.js"></script>
-    <script src="~/Scripts/Plugins/Angular/angular-route.min.js"></script>
-    <script src="~/Scripts/App/url.app.js"></script>
+    <script src="/Scripts/Plugins/JQuery/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/Plugins/Angular/angular.min.js"></script>
+    <script src="/Scripts/Plugins/Angular/angular-route.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+    <script src="/Scripts/Plugins/Captcha/angular-recaptcha.min.js"></script>
+    <script src="/Scripts/App/url.app.js"></script>
 </body>
 </html>

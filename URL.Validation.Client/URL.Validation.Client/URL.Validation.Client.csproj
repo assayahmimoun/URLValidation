@@ -116,6 +116,7 @@
     <None Include="Scripts\Plugins\JQuery\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\Plugins\BootStrap\bootstrap.js" />
     <Content Include="Scripts\Plugins\BootStrap\bootstrap.min.js" />
+    <Content Include="Scripts\Plugins\Captcha\angular-recaptcha.min.js" />
     <Content Include="Scripts\Plugins\JQuery\jquery-3.1.1.js" />
     <Content Include="Scripts\Plugins\JQuery\jquery-3.1.1.min.js" />
     <Content Include="Scripts\Plugins\JQuery\jquery-3.1.1.slim.js" />
@@ -128,6 +129,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\URLViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,12 +147,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\URL.Validation.Client.Business\URL.Validation.Client.Business.csproj">
       <Project>{0e19e707-90be-4444-8df6-1d3e10878f21}</Project>
       <Name>URL.Validation.Client.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\URL.Validation.Client.Common\URL.Validation.Client.Common.csproj">
+      <Project>{b16d7afe-6761-4a62-8dad-bce6c4216ae2}</Project>
+      <Name>URL.Validation.Client.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\URL.Validation.Client.DTO\URL.Validation.Client.DTO.csproj">
       <Project>{8ef1335b-dce0-4b22-910d-32d6206fab65}</Project>

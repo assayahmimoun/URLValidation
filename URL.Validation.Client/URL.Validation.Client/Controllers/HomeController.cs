@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using URL.Validation.Client.Business.Services;
+using URL.Validation.Client.Common.Helper;
+using URL.Validation.Client.Models;
 
 namespace URL.Validation.Client.Controllers
 {
@@ -15,12 +18,21 @@ namespace URL.Validation.Client.Controllers
             return View();
         }
 
-        [HttpGet]
-        public JsonResult DomainIsAvailable(string url)
+        [HttpPost]
+        public JsonResult DomainIsAvailable(URLViewModel urlModel)
         {
             if (ModelState.IsValid)
             {
-                var result = URLService.CheckDomainIsAvailable(url);
+                if (UtilityHelper.VerifyCaptcha(urlModel.RecaptchaResponse))
+                {
+                    return Json(new
+                    {
+                        Success = false,
+                        Message = "La captcha est invalide"
+                    }, JsonRequestBehavior.AllowGet);
+                }
+
+                var result = URLService.CheckDomainIsAvailable(urlModel.URL);
                 if(result != null)
                 {
                     if(result.OperationSuccess)
@@ -40,7 +52,7 @@ namespace URL.Validation.Client.Controllers
                                 message = "Veuillez saisir un nom de domaine.";
                                 break;
                             case DTO.Enum.ErrorType.Exist:
-                                message = $"{url} est déjà enregistré.";
+                                message = $"{urlModel.URL} est déjà enregistré.";
                                 break;
                             case DTO.Enum.ErrorType.InvalidUrl:
                                 message = "Le nom de domaine n'est pas valide. Veuillez le saisir à nouveau.";
@@ -67,7 +79,7 @@ namespace URL.Validation.Client.Controllers
             return Json(new
             {
                 Success = false,
-                Message = "Un problème est survenu lors de la connexion. Veuillez réessayer s’il vous plait."
+                Message = "Vos informations fournies sont invalides."
             }, JsonRequestBehavior.AllowGet);
         }
     }
