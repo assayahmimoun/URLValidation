@@ -49,14 +49,16 @@ namespace URL.Validation.Business.Services
                 url = $"http://{url}";
 
             var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Credentials = CredentialCache.DefaultCredentials;
             request.Method = "HEAD";
+            request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36";
             try
             {
                 response = (HttpWebResponse)request.GetResponse();
             }
             catch (WebException ex)
             {
-                return null;
+                return false;
             }
             finally
             {
