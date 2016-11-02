@@ -16,7 +16,9 @@ Télécharger les deux applications URL.Validation.API et URL.Validation.Client
 
 2 étape :
 
-Lancer les deux applications.
+Ouvrir les deux application
+
+lancer les deux applications.
 
 3 étape :
 
