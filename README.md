@@ -20,7 +20,7 @@ Ouvrir les deux applications.
 
 3 étape :
 
-Accéder au site https://www.google.com/recaptcha/admin et enregistrer un site (dans notre cas, puisqu'on teste sur localhost. Pour le libellé on met : localhost et pour le domaine, on met : localhost. Puis on clique sur enregistrer, comme vous voyez une nouvelle page s'ouvre.
+Accéder au site https://www.google.com/recaptcha/admin et enregistrer un site (dans notre cas, puisqu'on teste en localhost. Pour le libellé on met : localhost et pour le domaine, on met : localhost. Puis on clique sur enregistrer, comme vous voyez une nouvelle page s'ouvre.
 
 On récupére la clé public ainsi que la clé privée.
 
