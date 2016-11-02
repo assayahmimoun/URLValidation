@@ -11,38 +11,44 @@ namespace URL.Validation.Business.Services
 {
     public static class URLService
     {
-        public static ValidationMessage DomainNameAvailable(string url)
+        public static ValidationMessage UrlAvailable(string url)
         {
             ValidationMessage message = new ValidationMessage() { OperationSuccess = false };
-            if(string.IsNullOrWhiteSpace(url))
+            if (string.IsNullOrWhiteSpace(url))
             {
                 message.ErrorType = DTO.Enum.ErrorType.EmptyRequest;
             }
-            else if(!CheckValidURL(url))
+            else if (!CheckValidURL(url))
             {
                 message.ErrorType = DTO.Enum.ErrorType.InvalidUrl;
             }
-            else if(IsDomainNameAvailable(url))
-            {
-                message.ErrorType = DTO.Enum.ErrorType.Exist;
-            }
             else
-                message.OperationSuccess = true;
+            {
+                bool? isUrlAvailable = IsUrlAvailable(url);
+                if (!isUrlAvailable.HasValue)
+                    message.ErrorType = DTO.Enum.ErrorType.InternalServerError;
+                else if (isUrlAvailable.Value)
+                    message.ErrorType = DTO.Enum.ErrorType.Exist;
+                else
+                    message.OperationSuccess = true;
+            }
 
             return message;
         }
 
         private static bool CheckValidURL(string url)
         {
-            Uri uriResult;
-            return Uri.TryCreate(url, UriKind.Absolute, out uriResult)
-                && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+            return Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute);
         }
 
-        private static bool IsDomainNameAvailable(string domain)
+        private static bool? IsUrlAvailable(string url)
         {
             HttpWebResponse response = null;
-            var request = (HttpWebRequest)WebRequest.Create(domain);
+            Uri uri = new Uri(url, UriKind.RelativeOrAbsolute);
+            if (!uri.IsAbsoluteUri)
+                url = $"http://{url}";
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "HEAD";
             try
             {
@@ -50,6 +56,7 @@ namespace URL.Validation.Business.Services
             }
             catch (WebException ex)
             {
+                return null;
             }
             finally
             {

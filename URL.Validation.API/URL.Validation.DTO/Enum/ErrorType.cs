@@ -13,6 +13,7 @@ namespace URL.Validation.DTO.Enum
     {
         EmptyRequest,
         InvalidUrl,
-        Exist
+        Exist,
+        InternalServerError
     }
 }

@@ -9,6 +9,7 @@ namespace URL.Validation.API.Enum
     {
         EmptyRequest,
         InvalidUrl,
-        Exist
+        Exist,
+        InternalServerError
     }
 }

@@ -4,6 +4,7 @@
     {
         EmptyRequest,
         InvalidUrl,
-        Exist
+        Exist,
+        InternalServerError
     }
 }

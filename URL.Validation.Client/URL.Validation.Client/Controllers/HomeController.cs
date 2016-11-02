@@ -57,6 +57,9 @@ namespace URL.Validation.Client.Controllers
                             case DTO.Enum.ErrorType.InvalidUrl:
                                 message = "Le nom de domaine n'est pas valide. Veuillez le saisir à nouveau.";
                                 break;
+                            case DTO.Enum.ErrorType.InternalServerError:
+                                message = "Un problème est survenu lors du service qui permet de valider l'url. Veuillez réessayer s’il vous plait.";
+                                break;
                         }
 
                         return Json(new

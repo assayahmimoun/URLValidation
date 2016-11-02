@@ -25,7 +25,7 @@ namespace URL.Validation.API.Controllers
             if (string.IsNullOrWhiteSpace(url))
                 return message;
 
-            return URLService.DomainNameAvailable(url).ToValidationMessage();
+            return URLService.UrlAvailable(url).ToValidationMessage();
         }
     }
 }
