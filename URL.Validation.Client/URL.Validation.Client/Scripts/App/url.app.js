@@ -6,7 +6,7 @@
 	    $scope.message = '';
 	    $scope.result = "error";
 	    $scope.isViewLoading = false;
-	    $scope.publicKey = "6LeI4AoUAAAAABGJyKEB6zZwHntVlKTpbL0hGaAH";
+	    $scope.publicKey = "---------- Set your public key generate by your account google --------------";
 	    //get called when user submits the form
 	    $scope.submitForm = function () {
 	        /* vcRecaptchaService.getResponse() gives you the g-captcha-response */
