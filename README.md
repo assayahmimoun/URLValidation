@@ -18,8 +18,22 @@ Télécharger les deux applications URL.Validation.API et URL.Validation.Client
 
 Ouvrir les deux applications.
 
-lancer les deux applications.
-
 3 étape :
 
-Saisir votre url et cocher la case à cocher de Catpcha et enfin valider votre url en cliquant sur le bouton "valider"
+Accéder au site https://www.google.com/recaptcha/admin et enregistrer un site (dans notre cas, puisqu'on teste sur localhost. Pour le libellé on met : localhost et pour le domaine, on met : localhost. Puis on clique sur enregistrer, comme vous voyez une nouvelle page s'ouvre.
+
+On récupére la clé public ainsi que la clé privée.
+
+4 étape: 
+
+On ouvre l'application URL.Validation.Client, dans le fichier web.config du projet URL.Validation.Client, on replace la valeur de la clé "reCaptcha.Key.Secret" par la clé privée fournie par google.
+
+Puis on ouvre le fichier /Scripts/App/url.app.js, et on replace la valeur de la propriété $scope.publicKey par la clé public fournie par google.
+
+5 étape:
+
+On lance les deux applications URL.Validation.API et URL.Validation.Client.
+
+6 étape:
+
+Enfin, saisir votre url et cocher la case à cocher de Catpcha et enfin valider votre url en cliquant sur le bouton "valider"
