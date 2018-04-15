@@ -56,7 +56,7 @@ namespace URL.Validation.Business.Services
             {
                 response = (HttpWebResponse)request.GetResponse();
             }
-            catch (WebException ex)
+            catch (WebException)
             {
                 return false;
             }
