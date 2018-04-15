@@ -46,7 +46,7 @@ namespace URL.Validation.Business.Services
             HttpWebResponse response = null;
             Uri uri = new Uri(url, UriKind.RelativeOrAbsolute);
             if (!uri.IsAbsoluteUri)
-                url = $"http://{url}";
+                url = string.Format("http://{0}", url);
 
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Credentials = CredentialCache.DefaultCredentials;
