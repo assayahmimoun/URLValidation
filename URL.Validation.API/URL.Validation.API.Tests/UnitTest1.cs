@@ -11,6 +11,7 @@ namespace URL.Validation.API.Tests
         {
             var t = false;
             Assert.IsTrue(t);
+            Assert.IsFalse(t);
         }
     }
 }
