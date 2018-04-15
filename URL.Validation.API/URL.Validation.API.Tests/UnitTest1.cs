@@ -9,6 +9,8 @@ namespace URL.Validation.API.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            var t = false;
+            Assert.IsTrue(t);
         }
     }
 }
