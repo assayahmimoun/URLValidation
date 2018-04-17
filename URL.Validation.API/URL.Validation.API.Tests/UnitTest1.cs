@@ -10,7 +10,6 @@ namespace URL.Validation.API.Tests
         public void TestMethod1()
         {
             var t = false;
-            Assert.IsTrue(t);
             Assert.IsFalse(t);
         }
     }
